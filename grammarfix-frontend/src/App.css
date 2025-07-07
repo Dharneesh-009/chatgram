@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+.custom-textarea::placeholder {
+  color: #aaa; /* light gray */
+  opacity: 1;
+}
+/* App.css */
+.custom-textarea::placeholder {
+  color: #ffffff; /* gray placeholder */
+  opacity: 1;
+}

@@ -1,7 +1,10 @@
+// src/App.jsx
 import { useEffect, useRef, useState } from 'react';
 import ChatInput from './components/ChatInput';
 import ChatBox from './components/ChatBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; // or './styles.css' if you created another file
+
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -22,7 +25,7 @@ function App() {
 
   const handleSend = (text) => {
     const message = {
-      from: 'You', // Replace with actual username if login is added
+      from: 'You',
       text,
       time: new Date().toISOString(),
     };
@@ -31,31 +34,23 @@ function App() {
   };
 
   return (
-   <div className="vh-100 bg-dark text-white d-flex flex-column">
-  {/* Header */}
-  <header className="py-3 px-4 border-bottom border-secondary d-flex justify-content-between align-items-center" style={{ backgroundColor: "#1a1a2f" }}>
-    <h5 className="mb-0">💬 Grammar Chat AI</h5>
-  </header>
+    <div className="vh-100 vw-100 d-flex flex-column bg-dark text-white">
+      <header className="py-3 px-4 border-bottom border-secondary d-flex align-items-center justify-content-between" style={{ backgroundColor: "#1a1a2f" }}>
+        <h5 className="mb-0">💬 D's Grammar Chat AI</h5>
+      </header>
 
-  {/* Chat area */}
-  <div className="flex-grow-1 d-flex justify-content-center align-items-center" style={{ backgroundColor: "#1e1e2f" }}>
-    <div className="w-100" style={{ maxWidth: '800px', height: '100%' }}>
-      {/* Chat history box */}
-      <div className="d-flex flex-column h-100">
-        <div className="flex-grow-1 overflow-auto p-3 border-bottom border-secondary">
-          <ChatBox messages={messages} />
-        </div>
-
-        <div className="p-3 border-top border-secondary">
-          <ChatInput onSend={handleSend} />
+      <div className="flex-grow-1 d-flex justify-content-center align-items-center">
+        <div className="w-100 h-100 d-flex flex-column" style={{ maxWidth: "800px" }}>
+          <div className="flex-grow-1 overflow-auto p-3 border-bottom border-secondary">
+            <ChatBox messages={messages} />
+          </div>
+          <div className="p-3 border-top border-secondary">
+            <ChatInput onSend={handleSend} />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
   );
 }
 
 export default App;
-
